@@ -32,5 +32,28 @@ public class LibroController {
         return libritoList;
     }
 
+    @PutMapping(path = "/actualizar/{id}")
+    public String actualizarEstudiante(@PathVariable Integer id){
+        Libro newEstu = null;
+        for (Libro estudiante : libritoList){
+            if (estudiante.getId() == id){
+                int posicion = libritoList.indexOf(estudiante);
+
+                newEstu = estudiante;
+
+                if(newEstu.getEstado() == EstadoEnum.DISPONIBLE) {
+                    newEstu.setEstado(EstadoEnum.RESERVADO);
+                }
+                else{
+                    newEstu.setEstado(EstadoEnum.DISPONIBLE);
+                }
+
+                libritoList.set(posicion,newEstu);
+                break;
+            }
+        }
+        return "Estudiante actualizado";
+    }
+
 }
 

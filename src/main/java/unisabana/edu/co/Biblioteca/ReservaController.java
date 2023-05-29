@@ -39,8 +39,8 @@ public class ReservaController {
     @DeleteMapping(path = "/eliminar/{id}")
     public String eliminarEstudiante(@PathVariable(name = "id") Integer id){
         int index = 0;
-        for(Reserva estu : reservaList){
-            if(estu.getRut() == id){
+        for(Reserva res : reservaList){
+            if(res.getRut() == id){
                 reservaList.remove(index);
                 break;
             }
