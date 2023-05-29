@@ -42,6 +42,11 @@ public class Libro {
     @NotEmpty
     @NotNull
     private EstadoEnum estado;
+    @NotEmpty
+    @NotNull
+    @Min(0)
+    @Max(1000000)
+    private float precio;
 
 
 }
